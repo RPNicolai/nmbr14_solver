@@ -70,6 +70,9 @@ class State:
             prevs[r] = self
         return result
 
+# Main
+nsolutions = 1 # stopcriterium: aantal oplossingen en rekentijd beperken
+start = State([3,6,8,9,10,100], 528,[])
 # start = State([1,5,6,2,50,25], 813, [])
 # start = State([25,3,7,8,6,9], 223, [])
 # start = State([4,7,2,9,100,50], 997, [])
@@ -88,12 +91,12 @@ class State:
 # start = State([8,8,9,3,25,75], 723, [])
 # start = State([1,3,8,9,9,25], 601, [])
 #start = State([5,2,3,8,10,75], 872, [])
-start = State([2,6,7,9,25,50], 702,[])
+#start = State([2,6,7,9,25,50], 702,[])
 
 all_states = set({start})
 
 #while len(all_states) > 0: # alle oplossingen tonen
-while len(solutions) < 10: # na n oplossingen stoppen
+while len(all_states) > 0 | len(solutions) < nsolutions: # na n oplossingen stoppen of na de laatste oplossing
     c_s = list(all_states).pop()
     all_states.remove(c_s)
     next = c_s.next_states()
