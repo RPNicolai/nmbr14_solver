@@ -1,4 +1,4 @@
-from collections import deque
+#from collections import deque
 from copy import deepcopy
 from itertools import combinations 
 from collections import defaultdict
@@ -70,7 +70,6 @@ class State:
             prevs[r] = self
         return result
 
-
 # start = State([1,5,6,2,50,25], 813, [])
 # start = State([25,3,7,8,6,9], 223, [])
 # start = State([4,7,2,9,100,50], 997, [])
@@ -88,11 +87,13 @@ class State:
 # start = State([2,9,7,10,7,25], 473, [])
 # start = State([8,8,9,3,25,75], 723, [])
 # start = State([1,3,8,9,9,25], 601, [])
-start = State([5,2,3,8,10,75], 872, [])
+#start = State([5,2,3,8,10,75], 872, [])
+start = State([2,6,7,9,25,50], 702,[])
 
 all_states = set({start})
 
-while len(all_states) > 0:
+#while len(all_states) > 0: # alle oplossingen tonen
+while len(solutions) < 10: # na n oplossingen stoppen
     c_s = list(all_states).pop()
     all_states.remove(c_s)
     next = c_s.next_states()
@@ -106,3 +107,5 @@ for sol in solutions:
 print("== COUNTS ==")
 for k,v in counts.items():
     print(k,v)
+    
+print(len(solutions))
